@@ -1,0 +1,76 @@
+# programm_java_lab
+package com.company;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int sum = 0;
+	    int[] array=new int[10];
+        System.out.println("_____________________1______________________");
+	    for (int i = 0; i < 10; i++){
+	        array[i] = scanner.nextInt();
+	        sum += array[i];
+        }
+        while ()
+        System.out.println(sum);
+        System.out.println("_____________________2______________________");
+        System.out.println("Аргументы командной строки");
+        if (args.length < 1)
+            System.out.println("Аргументы отсутствуют");
+        for (String str : args){
+            System.out.printf("\t%str", str);
+        }
+        System.out.println("_____________________3______________________");
+        int h = 1;
+        for (double n =1.0; n < 10.0; n++){
+            System.out.println("Элемент " + h +  " = " + 1/n + " ");
+            h++;
+        }
+        System.out.println("_____________________4______________________");
+        System.out.println("Случайно сгенерированный массив: ");
+        Random random = new Random();
+        for (int i = 0; i< 10; i++){
+            array[i] = random.nextInt(1000);
+            System.out.println(array[i]);
+        }
+        bubbleSort(array);
+        System.out.println("массив после сортировки : " + Arrays.toString(array));
+        System.out.println("_____________________5______________________");
+        System.out.println("Введите число ,от которого вы хотите вычислить факториал: ");
+        int factorial;
+        factorial = scanner.nextInt();
+        System.out.println("Полученный факториал от  числа " + factorial + " равен: " + calculateFactorial(factorial));
+    }
+    // метод для 4 задания
+    public static void bubbleSort(int[] num) {
+        int j;
+        boolean flag = true;
+        int temp;
+        while (flag) {
+            flag = false;
+            for (j = 0; j < num.length - 1; j++) {
+                if (num[j] < num[j + 1]) {
+                    temp = num[j];
+                    num[j] = num[j + 1];
+                    num[j + 1] = temp;
+                    flag = true;
+                }
+            }
+        }
+    }
+    // метод для 5 задания
+
+        static int calculateFactorial(int n){
+            int result = 1;
+            for (int i = 1; i <=n; i ++){
+                result = result*i;
+            }
+            return result;
+        }
+
+}
