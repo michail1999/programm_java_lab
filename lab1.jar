@@ -10,13 +10,40 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int sum = 0;
+        int a = 0;
 	    int[] array=new int[10];
         System.out.println("_____________________1______________________");
-	    for (int i = 0; i < 10; i++){
-	        array[i] = scanner.nextInt();
-	        sum += array[i];
+
+        System.out.println("Выберите вариант записи в массив: \n 1 - с помощью цикла for" +
+                "\n 1 - с помощью цикла while \n 3 - с помощью цикла do-while " +
+                "\n 4 - автоматически с помощью класса Random");
+        a = scanner.nextInt();
+
+        switch (a){
+            case 1: for (int i = 0; i < 10; i++){
+                array[i] = scanner.nextInt();
+                sum += array[i];
+            }break;
+            case 2:int i = 0;
+                while (i < 10){
+                array[i] = scanner.nextInt();
+                sum += array[i];
+                i++;
+            }break;
+            case 3:int s = 0;
+                do {
+                array[s] = scanner.nextInt();
+                sum += array[s];
+                s++;
+            }while (s < 10);
+            case 4 : Random random = new Random();
+                for (int r = 0; r< 10; r++) {
+                    array[r] = random.nextInt(1000);
+                    sum += array[r];
+                }break;
+            default:
+                System.out.println("Вы ввели некорректное число");
         }
-        while ()
         System.out.println(sum);
         System.out.println("_____________________2______________________");
         System.out.println("Аргументы командной строки");
