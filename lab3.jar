@@ -1,0 +1,52 @@
+public abstract class Dish {
+    private String name;
+    private String material;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+    public Dish(String name, String material) {
+        this.name = name;
+        this.material = material;
+    }
+}
+
+
+public class Cups extends Dish {
+
+    int sizeHandle;
+    public Cups(String name, String material, int h) {
+        super(name, material);
+        this.sizeHandle = h;
+    }
+    public void displayInfo(){
+        System.out.println("Имя: " + super.getName() + " материал: " + super.getMaterial() + " размер ручки: " + sizeHandle);
+    }
+}
+
+
+public class Plate extends Dish {
+    int width;
+    public Plate(String name, String material, int w) {
+        super(name, material);
+        this.width = w;
+    }
+    public void displayInfo(){
+        System.out.println("Имя: " + super.getName() + " материал: " + super.getMaterial() + " ширина тарелки: " + width);
+    }
+}
+
+
+public class DishTest {
+    public static void main(String[] args) {
+
+        Cups cups = new Cups("tea","porcelain",6);
+        Plate plate = new Plate("soup plate","glass",60);
+        cups.displayInfo();
+        plate.displayInfo();
+    }
+}
