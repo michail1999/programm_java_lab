@@ -1,0 +1,38 @@
+public interface Nameable {
+    void getName();
+}
+
+
+public class Car implements Nameable{
+    String name;
+    public Car(String name) {
+        this.name = name;
+    }
+    public void getName(){
+        System.out.println(name);
+    }
+}
+
+
+public class Book implements Nameable{
+     String name;
+     Book(String name)
+     {
+         this.name = name;
+
+     }
+     public void getName()
+     {
+         System.out.println(name);
+     }
+}
+
+
+public class Test {
+    public static void main(String[] args) {
+        Book book = new Book("Java");
+        book.getName();
+        Car car = new Car("BMW M5");
+        car.getName();
+    }
+}
