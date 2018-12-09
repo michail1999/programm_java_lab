@@ -1,0 +1,53 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class NumberGUI extends JPanel {
+    private JLabel inputLabel, outputLabel, resultLabel;
+    private JTextField number;
+
+    public NumberGUI() {
+        inputLabel = new JLabel("Введите число:");
+        outputLabel = new JLabel("Результат попытки:");
+        resultLabel = new JLabel("--");
+        number = new JTextField(5);
+        number.addActionListener(new NumberListener());
+        add(inputLabel);
+        add(number);
+        add(outputLabel);
+        add(resultLabel);
+        setPreferredSize(new Dimension(300,75));
+        setBackground(Color.BLUE);
+    }
+    private class NumberListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            int rNumber;
+            String demoResult = "Вы не угадали";
+            rNumber = (int)(Math.random()*10);
+            int checkNumber;
+            String result;
+            for (int i = 0; i < 3; i++) {
+                String text = number.getText();
+                checkNumber = Integer.parseInt(text);
+                if (checkNumber == rNumber) {
+                    demoResult = "Вы угадали!";
+                    break;
+                }
+            } result = demoResult;
+            resultLabel.setText(result);
+        }
+    }
+}
+
+
+public class TestNumberGUI {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Игра 'угадай число'");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        NumberGUI numberGUI = new NumberGUI();
+        frame.getContentPane().add(numberGUI);
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
